@@ -1,0 +1,22 @@
+/commands/ping_google.sh
+/commands/open_tunnel.sh
+/commands/start_project.sh
+
+# run.sh
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "=== Protocol Launcher ==="
+select cmd in commands/*.sh; do
+  echo "Running: $cmd"
+  bash "$cmd"
+  break
+done
+
+# commands/ping_google.sh
+#!/bin/bash
+ping -c 3 google.com
+
+# commands/start_project.sh
+#!/bin/bash
+echo "Starting your remote project..."
+ssh your_user@your_server 'cd ~/projects/yourapp && ./start.sh'
